@@ -62,3 +62,29 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
     initialize: false
+--
+server:
+  port: 8181
+  contextPath: /uaa
+security:
+  user:
+    password: password
+  enable-csrf: false
+spring:
+  profiles: cloud
+  datasource:
+    url: jdbc:mysql://10.0.16.59:3306/cf_7ec90a91_6d49_47ff_8085_e7664e824b4f/dev
+    username: uHsimsR4iETSDa67
+    password: qV4gKfFrKufg4pT9
+    initialize: true
+security.ignored: /resources/**
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: 8181
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
+
