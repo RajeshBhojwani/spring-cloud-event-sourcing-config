@@ -4,6 +4,11 @@ spring:
 ---
 spring:
   profiles: cloud
+  datasource:
+    url: jdbc:mysql://10.0.16.59:3306/cf_c25f3933_5a64_4c96_aaa6_467cc8eb6eb0/dev
+    username: K6XKAkcouq6GVpgF
+    password: NLMq1tPgeMrj4vrQ
+    initialize: true
 security:
   oauth2:
     resource:
