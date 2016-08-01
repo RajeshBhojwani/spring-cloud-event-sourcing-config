@@ -57,11 +57,3 @@ spring:
     host: ${vcap.services.catalog-redis.credentials.hostname:localhost}
     port: ${vcap.services.catalog-redis.credentials.port:6379}
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: https://discovery-service-recommendatory-arthrospore.apps.liquidapplicationstudio.com/eureka/
