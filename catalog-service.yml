@@ -1,12 +1,7 @@
 spring:
   profiles:
-    active: development
----
-spring:
-  profiles: cloud
-  redis:
-    host: ${vcap.services.catalog-redis.credentials.hostname:localhost}
-    port: ${vcap.services.catalog-redis.credentials.port:6379}
+    active: cloud
+
 ---
 spring:
   profiles: development
@@ -55,3 +50,22 @@ spring:
     database: H2
   datasource:
     initialize: false
+---
+spring:
+  profiles: cloud
+  redis:
+    host: ${vcap.services.catalog-redis.credentials.hostname:localhost}
+    port: ${vcap.services.catalog-redis.credentials.port:6379}
+  datasource:
+    url: jdbc:mysql://mysql:3306/dev?useSSL=false
+    username: root
+    password: dbpass
+    initialize: true
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://discovery-service-recommendatory-arthrospore.apps.liquidapplicationstudio.com/eureka/
