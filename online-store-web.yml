@@ -11,20 +11,20 @@ zuul:
   routes:
     edge-service:
       path: /api/**
-      url: ${vcap.services.edge-service.credentials.uri:http://localhost:9999}
+      url: http://${vcap.services.edge-service.credentials.uri:localhost:9999}
     auth-service:
       path: /user/**
-      url: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/user
+      url: http://${vcap.services.user-service.credentials.uri:localhost:8181}/uaa/user
     user-service:
       path: /users/**
 security:
   enable-csrf: false
   oauth2:
     resource:
-      userInfoUri: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/user
+      userInfoUri: http://${vcap.services.user-service.credentials.uri:localhost:8181}/uaa/user
     client:
-      accessTokenUri: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/oauth/token
-      userAuthorizationUri: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/oauth/authorize
+      accessTokenUri: http://${vcap.services.user-service.credentials.uri:localhost:8181}/uaa/oauth/token
+      userAuthorizationUri: http://${vcap.services.user-service.credentials.uri:localhost:8181}/uaa/oauth/authorize
       clientId: acme
       clientSecret: acmesecret
   ignored: /assets/**
